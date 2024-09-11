@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Média</title>
+</head>
+<body>
+    <script>
+        let n1 = parseFloat(prompt('Informe a primeira nota: '));
+        let n2 = parseFloat(prompt('Informe a segunda nota: '));
+        let n3 = parseFloat(prompt('Informe a terceira nota: '));
+        let n4 = parseFloat(prompt('Informe a quarta nota: '));
+        let media = (n1 + n2 + n3 + n4) / 4;
+        
+        if (media >= 7){
+            alert('Sua média foi ' + media + '. Parabéns, você foi aprovado!');
+        }else{
+            alert('Sua média foi ' + media + '. Infelizmente, você foi reprovado.');
+        }
+        console.log(media);
+     </script>
+</body>
+</html>

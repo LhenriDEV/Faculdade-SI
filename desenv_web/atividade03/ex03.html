@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <script>
+        let n1 = parseFloat(prompt('Informe um número: '));
+        let n2 = parseFloat(prompt('Informe outro número: '));
+        let Operacao = parseFloat(prompt('O que deseja fazer com estes números? (Escolha uma opção: 1 - Adição; 2 - Subtração; 3 - Multiplicação; 4 - Divisão)'));
+        Soma = n1 + n2;
+        Sub = n1 - n2;
+        Mult = n1 * n2;
+        Div = n1 / n2;
+
+        switch(Operacao){
+            case 1:
+                alert('A soma entre ' + n1 + ' e ' + n2 + ' é ' + Soma + '.');
+                break;
+            case 2:
+                alert('A subtração entre ' + n1 + ' e ' + n2 + ' é ' + Sub + '.');
+                break;
+            case 3:
+                alert('A multiplicação entre ' + n1 + ' e ' + n2 + ' é ' + Mult + '.');
+                break;
+            case 4:
+                alert('A divisão entre ' + n1 + ' e ' + n2 + ' é ' + Div + '.');
+                break;
+            default:
+                alert('Opção inválida.');
+                break;
+        }
+    </script>
+</body>
+</html>
