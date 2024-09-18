@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+</head>
+<body>
+    <h1>Calculadora Simples</h1>
+    <input type="text" id="resultado" placeholder="Resultado" readonly><br>
+    <input type="number" id="valor1" placeholder="Primeiro valor"><br>
+    <input type="number" id="valor2" placeholder="Segundo valor"><br>
+
+    <button onclick="somar()">+</button>
+    <button onclick="subtrair()">-</button>
+    <button onclick="multiplicar()">*</button>
+    <button onclick="dividir()">/</button>
+    <button onclick="limpar()">C</button>
+
+    <script>
+        function somar(){
+            var v1 = parseFloat(document.getElementById("valor1").value);
+            var v2 = parseFloat(document.getElementById("valor2").value);
+            document.getElementById("resultado").value = v1 + v2;
+        }
+
+        function subtrair(){
+            var v1 = parseFloat(document.getElementById("valor1").value);
+            var v2 = parseFloat(document.getElementById("valor2").value);
+            document.getElementById("resultado").value = v1 - v2;
+        }
+
+        function multiplicar(){
+            var v1 = parseFloat(document.getElementById("valor1").value);
+            var v2 = parseFloat(document.getElementById("valor2").value);
+            document.getElementById("resultado").value = v1 * v2;
+        }
+
+        function dividir(){
+            var v1 = parseFloat(document.getElementById("valor1").value);
+            var v2 = parseFloat(document.getElementById("valor2").value);
+            if (v2 != 0){
+                document.getElementById("resultado").value = v1 / v2;
+            } else{
+                document.getElementById("resultado").value = "Indefinido";
+            }
+        }
+
+        function limpar(){
+            document.getElementById("resultado").value = "";
+            document.getElementById("valor1").value = "";
+            document.getElementById("valor2").value = "";
+        }
+    </script>
+</body>
+</html>
