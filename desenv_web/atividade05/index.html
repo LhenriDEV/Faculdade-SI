@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Completa</title>
+</head>
+<body>
+    <h1>Calculadora Completa</h1>
+    <input type="text" id="expressao" placeholder="Expressão" readonly><br>
+    <input type="text" id="resultado" placeholder="Resultado" readonly><br>
+
+    <button onclick="adicionarValor('1')">1</button>
+    <button onclick="adicionarValor('2')">2</button>
+    <button onclick="adicionarValor('3')">3</button>
+    <button onclick="adicionarOperacao('+')">+</button><br>
+
+    <button onclick="adicionarValor('4')">4</button>
+    <button onclick="adicionarValor('5')">5</button>
+    <button onclick="adicionarValor('6')">6</button>
+    <button onclick="adicionarOperacao('-')">-</button><br>
+
+    <button onclick="adicionarValor('7')">7</button>
+    <button onclick="adicionarValor('8')">8</button>
+    <button onclick="adicionarValor('9')">9</button>
+    <button onclick="adicionarOperacao('*')">*</button><br>
+
+    <button onclick="adicionarValor('0')">0</button>
+    <button onclick="adicionarOperacao('/')">/</button>
+    <button onclick="adicionarOperacao('%')">%</button>
+    <button onclick="adicionarOperacao('^')">^</button><br>
+
+    <button onclick="calcularRaiz()">√</button>
+    <button onclick="calcularResultado()">=</button>
+    <button onclick="limpar()">C</button>
+
+    <script>
+        function adicionarValor(valor) {
+            document.getElementById("expressao").value += valor;
+        }
+
+        function adicionarOperacao(operador) {
+            document.getElementById("expressao").value += operador;
+        }
+
+        function calcularResultado() {
+            try {
+                let expressao = document.getElementById("expressao").value;
+
+                expressao = expressao.replace(/\^/g, '**');
+
+                expressao = expressao.replace(/(\d+)%/g, "($1/100)");
+
+                let resultado = eval(expressao);
+
+                if (resultado === Infinity || resultado === -Infinity) {
+                    document.getElementById("resultado").value = "Indefinido";
+                } else {
+                    document.getElementById("resultado").value = resultado;
+                }
+            } catch (error) {
+                document.getElementById("resultado").value = "Erro";
+            }
+        }
+
+        function calcularRaiz() {
+            try {
+                let expressao = document.getElementById("expressao").value;
+
+                let resultado = Math.sqrt(eval(expressao));
+
+                if (resultado === Infinity || resultado === -Infinity) {
+                    document.getElementById("resultado").value = "Indefinido";
+                } else {
+                    document.getElementById("resultado").value = resultado;
+                }
+            } catch (error) {
+                document.getElementById("resultado").value = "Erro";
+            }
+        }
+
+        function limpar() {
+            document.getElementById("expressao").value = "";
+            document.getElementById("resultado").value = "";
+        }
+    </script>
+</body>
+</html>
